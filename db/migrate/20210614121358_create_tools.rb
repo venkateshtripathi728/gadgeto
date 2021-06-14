@@ -3,6 +3,7 @@ class CreateTools < ActiveRecord::Migration[6.0]
     create_table :tools do |t|
       t.string :tool_name
       t.text :tool_description
+      t.string :category
       t.text :address
       t.float :longitude
       t.float :latitude
