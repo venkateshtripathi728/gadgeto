@@ -12,6 +12,22 @@
   color: white;
 }
 
+.btn-green {
+  color: white;
+  border: solid 2px #37FF8B;
+  padding: 8px 30px;
+  border-radius: 4px;
+  background: #37FF8B;
+  transition: background 0.3s ease;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.btn-green:hover {
+  background: white;
+  color: #37FF8B;
+}
+
 .btn-flat-search {
   color: #011627;
   padding: 8px 24px;
