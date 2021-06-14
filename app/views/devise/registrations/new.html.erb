@@ -19,7 +19,7 @@
     </div>
     </div>
     <div class="row justify-content-md-center">
-    <div class="col-6">
+    <div class="col-6",class="form-control:focus">
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -42,10 +42,14 @@
   </div>
   </div>
   </div>
-
-  <div class="form-actions">
+ <div class="row justify-content-md-center mt-2">
+ <div class="btn-white">
     <%= f.button :submit, "Sign up" %>
   </div>
+  </div>
 <% end %>
-
+ <div class="row justify-content-md-center mt-2">
+ <div class="btn-flat">
 <%= render "devise/shared/links" %>
+</div>
+</div>
