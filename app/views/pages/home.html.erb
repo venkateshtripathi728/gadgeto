@@ -37,55 +37,50 @@
 
   <h2>They are <mark>talking</mark> about us !</h2>
 
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="card review d-block w-100" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
+      <div class="carousel-item active text-center">
+        <div class="card review d-block" style="width: 30rem;">
+          <div class="card-body-review">
+            <h5 class="card-title">Grégoire</h5>
+            <h6 class="card-subtitle mb-2 text-muted">CTO</h6>
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
           </div>
         </div>
       </div>
-      <div class="carousel-item">
-        <div class="card review d-block w-100" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
+      <div class="carousel-item text-center">
+        <div class="card review d-block" style="width: 30rem;">
+          <div class="card-body-review">
+            <h5 class="card-title">Maxence</h5>
+            <h6 class="card-subtitle mb-2 text-muted">CEO</h6>
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
           </div>
         </div>
       </div>
-      <div class="carousel-item">
-        <div class="card review d-block w-100" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
+      <div class="carousel-item text-center">
+        <div class="card review d-block" style="width: 30rem;">
+          <div class="card-body-review">
+            <h5 class="card-title">Venkatesh</h5>
+            <h6 class="card-subtitle mb-2 text-muted">CFO</h6>
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
           </div>
         </div>
       </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+  </div>
+
+  <h2>What are you <mark>looking</mark> for ?</h2>
+  <div class="search-form">
+    <h3 class="text-center">Your turn to search for your first tools and join <strong>gadgeto</strong> community.</h3>
+    <p class="text-center">Find the more adapted tool for your needs between more than 100,000 tools !</p>
+    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+      <div class="search-form-control form-group">
+        <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="Search for your first tool..."  />
+        <button name="button" type="submit" class="btn btn-flat-search">
+          <i class="fas fa-search"></i> Search
+        </button>
+      </div>
+    <% end %>
   </div>
 </div>
 
