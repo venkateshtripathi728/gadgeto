@@ -1,5 +1,5 @@
 class Tool < ApplicationRecord
-  belongs_to :user,dependent: :destroy
+  belongs_to :user
   has_many_attached :photos
   validates :tool_name, presence: true
   validates :price, presence: true
