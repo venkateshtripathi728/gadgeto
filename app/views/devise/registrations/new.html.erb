@@ -4,22 +4,52 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+   <div class="row justify-content-md-center">
+   <div class="col-6">
+    <%= f.input :user_name,
+                required: true,
+                input_html: { autocomplete: "user_name" } %>
+    </div>
+    </div>
+    <div class="row justify-content-md-center">
+    <div class="col-6">
+    <%= f.input :description,
+                required: true,
+                input_html: { autocomplete: "description" } %>
+    </div>
+    </div>
+    <div class="row justify-content-md-center">
+    <div class="col-6",class="form-control:focus">
     <%= f.input :email,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
+    </div>
+    </div>
+    <div class="row justify-content-md-center">
+    <div class="col-6">
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
+    </div>
+    </div>
+    <div class="row justify-content-md-center">
+    <div class="col-6">
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
   </div>
-
-  <div class="form-actions">
+  </div>
+  </div>
+ <div class="row justify-content-md-center mt-2">
+ <div class="btn-white">
     <%= f.button :submit, "Sign up" %>
   </div>
+  </div>
 <% end %>
-
+ <div class="row justify-content-md-center mt-2">
+ <div class="btn-flat">
 <%= render "devise/shared/links" %>
+</div>
+</div>

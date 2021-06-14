@@ -6,8 +6,27 @@ body {
 h2 {
   text-align: center;
   font-weight: bolder;
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
 
 mark {
   background-color: #37FF8B;
+}
+
+.search-form {
+  background-color: rgba(55, 255, 139, 0.3);
+  border-radius: 4px;
+  padding: 30px 20px;
+  margin: 30px 0;
+}
+
+.search-form-control {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 30px;
+}
+
+.form-control {
+  width: 75%;
 }

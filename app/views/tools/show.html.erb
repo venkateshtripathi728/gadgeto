@@ -1,0 +1,23 @@
+<div class="product-container">
+ 
+
+  <div class="product-left-column">
+    <img src="https://www.hearthsong.com/medias/sys_master/images/images/h33/he8/13815137271838/13815137271838.jpg" alt="">
+  </div>
+ 
+ 
+  <div class="product-right-column">
+ 
+    <div class="product-description">
+      
+      <span><%=@tool.category%></span>
+      <h1><%=@tool.tool_name%></h1>
+      <p><%= @tool.tool_description%></p>
+    </div>
+ 
+    <div class="product-price">
+      <span><%=@tool.price%> €</span>
+      <a href="#" class="btn-flat">Book now</a>
+    </div>
+  </div>
+</div>

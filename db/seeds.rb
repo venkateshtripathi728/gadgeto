@@ -9,10 +9,11 @@
 
 User.create(user_name:"First_user",email:"first@edhec.com",password:"azerty")
 User.create(user_name:"Second_user",email:"second@edhec.com",password:"azerty")
-User.create(user_name:"First_user",email:"first@edhec.com",password:"azerty")
-User.create(user_name:"Second_user",email:"second@edhec.com",password:"azerty")
 
-Tool.create(user_id:9,tool_name:"hammer",price:5,tool_description:"nice wooden hammer")
-Tool.create(user_id:10,tool_name:"saw",price:7,tool_description:"nice iron saw")
-Tool.create(user_id:11,tool_name:"hammer",price:5,tool_description:"nice wooden hammer")
-Tool.create(user_id:12,tool_name:"saw",price:7,tool_description:"nice iron saw")
+
+
+Tool.create(user_id:1,tool_name:"hammer",price:5,tool_description:"nice wooden hammer",category:"gardening")
+Tool.create(user_id:1,tool_name:"saw",price:7,tool_description:"nice iron saw",category:"gardening")
+Tool.create(user_id:2,tool_name:"nails",price:10,tool_description:"nice steel nails",category:"gardening")
+Tool.create(user_id:2,tool_name:"ladder",price:20,tool_description:"a big ladder",category:"gardening")
+
