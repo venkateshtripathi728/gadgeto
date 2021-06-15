@@ -9,7 +9,7 @@ class ToolsController < ApplicationController
 
   end
   
-  def show 
+  def show     
     authorize @tool
   end
 
@@ -48,7 +48,7 @@ class ToolsController < ApplicationController
   end
 
   def tools_params
-    params.require(:tool).permit(:tool_name, :tool_description, :price, :longitude, :latitude, :address, :category)
+    params.require(:tool).permit(:tool_name, :tool_description, :price, :longitude, :latitude, :address, :category, :photo)
   end
 
 end
