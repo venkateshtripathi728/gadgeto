@@ -1,22 +1,24 @@
 class ToolsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index,:show]
-
   before_action :set_tool, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only:  [:index, :show]
+  
 
   def index
     @tools = policy_scope(Tool).order(created_at: :desc)
   end
   
-
-  def show
+  def show 
+    authorize @tool
   end
 
   def new
     @tool = Tool.new
+    authorize @tool
   end
 
   def create
-    @tool = Tool.new(tool_params)
+    @tool = Tool.new(tools_params)
+    @tool.user = current_user
     if @tool.save
       redirect_to tool_path(@tool)
     else
@@ -38,12 +40,14 @@ class ToolsController < ApplicationController
   end
 
   private
+
   def set_tool
       @tool = Tool.find(params[:id])
   end
 
   def tools_params
-    params.require(:tool).permit(:name, :description, :price, :longitude, :latitude, :address, :category)
+    params.require(:tool).permit(:tool_name, :tool_description, :price, :longitude, :latitude, :address, :category)
   end
+
 end
 
