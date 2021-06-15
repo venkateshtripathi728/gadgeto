@@ -29,6 +29,22 @@
 
 <div class="product-tools">
   <% @tools.each do |tool| %>
+<<<<<<< HEAD
+  
+  <div class ="product-cards">
+  <%= link_to tool_path(tool), class: "product-cards-link" do %>
+    <div class="product-infos">
+      <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80">
+        <h2><%=  tool.tool_name.capitalize %></h2>
+        <p><%=tool.tool_description.capitalize %></p>
+        <h1><%= tool.price.to_s+"€"%></h1>
+
+    </div>
+    <% end %>
+  </div>
+  
+ <% end %>
+=======
     <%= link_to root_path  do %>
       <div class ="product-cards">
         <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80">
@@ -39,4 +55,5 @@
           </div>
       <% end %>
     <% end %>
+>>>>>>> 6e98f00c4aad288de678fa8de64b533b4352885f
 </div>
