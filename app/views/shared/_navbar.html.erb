@@ -1,3 +1,4 @@
+ 
  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
       <%= link_to root_path, class: "navbar-brand" do %>
         <%= cl_image_tag("ylqaiehw0slcqpsbivst.png") %>
@@ -19,11 +20,27 @@
     <div>
      <% if user_signed_in? %>
        <div class="d-flex">
-       <%= link_to "Log out", destroy_user_session_path,method: :delete, class: "btn btn-flat" %>
        <% if current_user.photo.attached? %>
-       <div > <%=link_to cl_image_tag("ylqaiehw0slcqpsbivst.png", class: "avatar"), edit_user_registration_path %></div>
+         <ul class="navbar-nav mr-auto">
+       <li class="nav-item dropdown">
+          <%= cl_image_tag("ylqaiehw0slcqpsbivst.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Action", "#", class: "dropdown-item" %>
+            <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+        </ul>
        <%else %>
-       <div> <%=link_to cl_image_tag("ylqaiehw0slcqpsbivst.png" , class: "avatar" ), edit_user_registration_path %></div>
+         <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <%=  cl_image_tag("ylqaiehw0slcqpsbivst.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Edit Profile", "#", class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+        </ul>
         </div>
         </div>
        <%end %>
