@@ -4,7 +4,9 @@ class ToolsController < ApplicationController
   
 
   def index
+
     @tools = policy_scope(Tool).order(created_at: :desc)
+
   end
   
   def show 
