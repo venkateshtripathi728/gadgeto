@@ -1,0 +1,40 @@
+ <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= cl_image_tag("ylqaiehw0slcqpsbivst.png") %>
+        <%= " | gadgeto" %>
+      <% end %>
+    <div>
+      <ul class="navbar-nav mr-auto" id="indextoactive">
+        <li class="nav-item active">
+          <%= link_to "Home", root_path , class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Tools", tools_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Rent your tools", "#", class: "nav-link" %>
+        </li>
+      </ul>
+    </div>
+    <div>
+     <% if user_signed_in? %>
+       <div class="d-flex">
+       <%= link_to "Log out", destroy_user_session_path,method: :delete, class: "btn btn-flat" %>
+       <% if current_user.photo.attached? %>
+       <div > <%=link_to cl_image_tag("ylqaiehw0slcqpsbivst.png", class: "avatar"), edit_user_registration_path %></div>
+       <%else %>
+       <div> <%=link_to cl_image_tag("ylqaiehw0slcqpsbivst.png" , class: "avatar" ), edit_user_registration_path %></div>
+        </div>
+        </div>
+       <%end %>
+      <% else %>
+        <%= link_to "Log in", new_user_session_path, class: "btn btn-flat" %>
+      <% end %>
+    </div>
+    </div>
+
+  <p><%= @curent_user %></p>
+
+
+
+
