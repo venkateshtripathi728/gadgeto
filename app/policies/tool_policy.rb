@@ -1,5 +1,10 @@
 class ToolPolicy < ApplicationPolicy
+  
   def create?
+    return true
+  end
+
+  def show?
     return true
   end
 
@@ -16,4 +21,5 @@ class ToolPolicy < ApplicationPolicy
       scope.all
     end
   end
+  
 end
