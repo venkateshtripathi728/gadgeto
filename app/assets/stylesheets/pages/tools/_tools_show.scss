@@ -1,4 +1,4 @@
-   
+
   .product-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -9,8 +9,9 @@
   .product-left-column {
     width: 65%;
     position: relative;
-    }
-   
+  }
+
+
   .product-right-column {
     width: 35%;
     margin-top: 60px;
@@ -52,11 +53,10 @@
     display: flex;
     align-items: center;
   }
-   
+
   .product-price span {
     font-size: 26px;
     font-weight: 300;
     color: #43474D;
     margin-right: 20px;
   }
-  
