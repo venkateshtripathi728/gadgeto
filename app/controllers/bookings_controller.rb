@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_tool, only: [:show,:edit,:update,:destroy]
 
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(Booking).order(created_at: :desc)
   end
 
   def show
@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
   end
-  
+
   def create
     @booking = Booking.new(booking_params)
     if @booking.save
@@ -19,11 +19,15 @@ class BookingsController < ApplicationController
     else
       render :new
     end
-  end
 
+    authorize @booking
+  end
+  
   def edit 
 
   end
+
+  
 
   def update
     @booking.update(booking_params)
