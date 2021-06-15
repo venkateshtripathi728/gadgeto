@@ -32,6 +32,7 @@
     </div>
     <div>
       <%= link_to "Log in", new_user_session_path, class: "btn btn-flat" %>
+      <%= link_to "Log out", destroy_user_session_path,method: :delete, class: "btn btn-flat" %>
     </div>
     </div>
     <%= yield %>
