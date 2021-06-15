@@ -1,27 +1,78 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="m-3">
+<h2>Edit</h2>
+
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
+
+
+  <div class="form-inputs text-center">
+    <div class="row justify-content-md-center">
+      <div class="col-6">
+      <%= f.input :user_name,
+                required: true,
+                input_html: { autocomplete: "user_name" } %>
+
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+    <div class="col-6">
+    <%= f.input :description,
+                required: true,
+                input_html: { autocomplete: "description" } %>
+    </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col-6">
+        <%= f.input :email, required: true, autofocus: true %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+      <div class="col-6">
+    <%= f.input :current_password,
+                hint: " 🚨 We need your current password to confirm your changes🚨 ",
+                required: true,
+                input_html: { autocomplete: "current-password" } %>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col-6">
+        <%= f.input :password,
+            hint: "⚠️ Leave it blank if you don't want to change it ⚠️",
+            required: false,
+            input_html: { autocomplete: "new-password" } %>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col-6">
     <%= f.input :password_confirmation,
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+
+      </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+      <div class="col-6">
+        <%= f.input :photo, as: :file %>
+      </div>
+    </div>
+
+    <div class="row justify-content-md-center mt-2">
+      <%= f.button :submit, "Edit", class: "btn-green"%>
+    </div>
+
+    <div class="row justify-content-md-center">
+      <div class="col-6">
+        <p id="leave">Don't leave us 😪</p>
+        <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+      </div>
+    </div>
+
   </div>
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
+
 <% end %>
-<h3>Cancel my account</h3>
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-<%= link_to "Back", :back %>
+
