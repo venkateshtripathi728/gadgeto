@@ -28,18 +28,15 @@
 <div class="line"></div>
 
 <div class="product-tools">
- <% @tools.each do |tool| %>
-   <div class="category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80)">
-     <div class="card-trip">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      <div class="card-trip-infos">
-        <div>
-          <h2><%= link_to tool.tool_name, root_path, class: "link" %></h2>
-          <p><%= tool.tool_description %></p>
-        </div>
-      <h2 class="card-trip-pricing"><%= tool.price %></h2>
-      </div>
-     </div>
-   </div>
+  <% @tools.each do |tool| %>
+  <div class ="product-cards">
+    <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80">
+    <div class="product-infos">
+        <h2><%= link_to tool.tool_name.capitalize, "#", class: "link" %></h2>
+        <p><%=tool.tool_description.capitalize %></p>
+        <h1><%= tool.price.to_s+"€"%></h1>
+
+    </div>
+  </div>
  <% end %>
 </div>
