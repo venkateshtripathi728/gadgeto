@@ -41,3 +41,20 @@
   padding: 8px 24px;
   border-radius: 4px;
 }
+
+.active-item {
+  border-bottom: solid 3px #37FF8B;
+  .link-nav{
+    color: black;
+  }
+}
+
+.link-nav {
+  padding: 0 10px;
+  color: grey;
+  transition: 0.3s;
+  &:hover {
+    text-decoration: none;
+    color: black;
+  }
+}

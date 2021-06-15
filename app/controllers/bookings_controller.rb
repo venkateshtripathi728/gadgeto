@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
@@ -19,7 +20,6 @@ class BookingsController < ApplicationController
     else
       render :new
     end
-
     authorize @booking
   end
   
