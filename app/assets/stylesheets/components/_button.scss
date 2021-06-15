@@ -58,3 +58,35 @@
     color: black;
   }
 }
+
+
+.btn-delete {
+  color: white;
+  border: solid 2px #e44834;
+  padding:  8px 24px;
+  border-radius: 4px;
+  background: #e44834;
+  transition: background 0.3s ease;
+
+}
+
+.btn-delete:hover {
+  background: white;
+  color: #e44834;
+}
+
+
+
+.btn-edit {
+  color: white;
+  border: solid 2px #011627;
+  padding:  8px 24px;
+  border-radius: 4px;
+  background: #011627;
+  transition: background 0.3s ease;
+}
+
+.btn-edit:hover {
+  background: white;
+  color: #011627;
+}
