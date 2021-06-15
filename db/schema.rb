@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(version: 2021_06_15_082758) do
   create_table "tools", force: :cascade do |t|
     t.string "tool_name"
     t.text "tool_description"
-    t.string "category"
     t.text "address"
     t.float "longitude"
     t.float "latitude"
