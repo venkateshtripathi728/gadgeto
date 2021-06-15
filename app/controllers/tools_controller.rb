@@ -24,21 +24,28 @@ class ToolsController < ApplicationController
     if @tool.save
       redirect_to tool_path(@tool)
     else
-      render :new 
+      render :new
     end
     authorize @tool
   end
-  
+
   def edit
+    authorize @tool
   end
 
   def update
-    @tool.update(tools_params)
+    if @tool.update(tools_params)
+      redirect_to tool_path(@tool)
+    else
+      render :new
+    end
+    authorize @tool
   end
 
   def destroy
     @tool.destroy
     redirect_to tools_path
+    authorize @tool
   end
 
   private

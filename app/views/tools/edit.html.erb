@@ -1,0 +1,49 @@
+<h2>Edit your tool</h2>
+<%= simple_form_for @tool do |f| %>
+
+<div class="form-inputs text-center">
+  <div class="row justify-content-md-center">
+      <div class="col-6",class="form-control:focus">
+    <%= f.error_notification %>
+      <%= f.input :tool_name,
+                  required: true %>
+    </div>
+  </div>
+  <div class="row justify-content-md-center">
+        <div class="col-6",class="form-control:focus">
+      <%= f.input :tool_description,
+                  required: true %>
+    </div>
+  </div>
+  <div class="row justify-content-md-center">
+    <div class="col-6",class="form-control:focus">
+      <%= f.input :category,
+                  required: true %>
+    </div>
+  </div>
+  <div class="row justify-content-md-center">
+    <div class="col-6",class="form-control:focus">
+      <%= f.input :price,
+                  required: true %>
+    </div>
+  </div>
+  <div class="row justify-content-md-center">
+    <div class="col-6",class="form-control:focus">
+      <%= f.input :address,
+                  required: true %>
+    </div>
+  </div>
+   <div class="row justify-content-md-center">
+    <div class="col-6">
+     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    </div>
+    </div>
+  </div>
+
+
+
+    <div class="row justify-content-md-center mt-2">
+      <%= f.button :submit, "Edit tool", class: "btn-green"%>
+    </div>
+  <% end %>
+</div>
