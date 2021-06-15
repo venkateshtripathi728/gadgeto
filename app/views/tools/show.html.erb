@@ -2,7 +2,11 @@
  
 
   <div class="product-left-column">
-    <img src="https://www.hearthsong.com/medias/sys_master/images/images/h33/he8/13815137271838/13815137271838.jpg" alt="">
+    <% if @tool.photo.attached? %>
+          <%= cl_image_tag(@tool.photo.key) %>
+         <%else %>
+          <%=  cl_image_tag("ylqaiehw0slcqpsbivst.png") %>
+           <%end %>
   </div>
  
  
@@ -11,7 +15,7 @@
     <div class="product-description">
       
       <span><%=@tool.category%></span>
-      <h1><%=@tool.tool_name%></h1>
+      <h1><%=@tool.tool_name.capitalize%></h1>
       <p><%= @tool.tool_description%></p>
     </div>
  
@@ -19,5 +23,11 @@
       <span><%=@tool.price%> €</span>
       <a href="#" class="btn-flat">Book now</a>
     </div>
+    <div class="my-3">
+    <% if current_user === @tool.user %>
+      <%= link_to "Edit", edit_tool_path, class: "btn btn-edit" %>
+      <%= link_to "Delete", tool_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-delete m-2" %>
+    <% end %>
+  </div>
   </div>
 </div>
