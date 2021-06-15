@@ -12,28 +12,9 @@
   </head>
 
   <body>
-    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-      <%= link_to "#", class: "navbar-brand" do %>
-        <%= image_tag "/assets/hammer" %>
-        <%= " | gadgeto" %>
-      <% end %>
-    <div>
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <%= link_to "Home", root_path , class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Tools", tools_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Rent your tools", "#", class: "nav-link" %>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <%= link_to "Log in", new_user_session_path, class: "btn btn-flat" %>
-    </div>
-    </div>
+  <%= render 'shared/navbar' %>
+  <%= render 'shared/flashes' %>
+
     <%= yield %>
     <div class="footer">
       <div class="footer-links">
