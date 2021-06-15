@@ -4,8 +4,9 @@ class ToolsController < ApplicationController
   before_action :set_tool, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tools = Tool.all
+    @tools = policy_scope(Tool).order(created_at: :desc)
   end
+  
 
   def show
   end
@@ -21,6 +22,7 @@ class ToolsController < ApplicationController
     else
       render :new 
     end
+    authorize @tool
   end
   
   def edit
