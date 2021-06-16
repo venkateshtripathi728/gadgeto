@@ -9,30 +9,49 @@
 <div class="m-3">
   <h2>Manage your bookings</h2>
 
-  <div class="row">
-   <div class="column border-right">
+  <div class="row-booking">
+   <div class="column-booking border-right">
       <div class="row justify-content-md-center">
-        My Bookings
+        <p>My Bookings</p>
       </div>
-      <ul>
+      <div class="card-booking-left">
        <% @bookings.each do |booking|%>
-         <li><%= booking.status%></li>
+        <% if current_user.id === booking.user_id %>
+          <div class="card-booking">
+            <% if booking.tool.photo.attached? %>
+              <%= cl_image_tag(booking.tool.photo.key, class:"card-booking-img")%>
+            <%else %>
+            <%=  cl_image_tag("ylqaiehw0slcqpsbivst.png", class:"card-booking-img") %>
+           <%end %>
+            <div class="card-booking-infos">
+              <h2><%=booking.tool.tool_name%></h2>
+              <p>Product description with <strong>relevant info</strong> only.</p>
+            </div>
+          </div>
+        <% end %>
        <% end %>
-      </ul>
+     </div>
    </div>
-   <div class="column">
+   <div class="column-booking">
     <div class="row justify-content-md-center">
       My tools
     </div>
-     <ul>
+      <div class="card-booking-right">
        <% @bookings.each do |booking|%>
-         <li><%= booking.status%></li>
+        <% if current_user.id === booking.tool.user_id %>
+          <div class="card-booking">
+            <% if booking.tool.photo.attached? %>
+              <%= cl_image_tag(booking.tool.photo.key, class:"card-booking-img")%>
+            <%else %>
+            <%=  cl_image_tag("ylqaiehw0slcqpsbivst.png", class:"card-booking-img") %>
+           <%end %>            <div class="card-booking-infos">
+              <h2><%=booking.tool.tool_name%></h2>
+              <p>Product description with <strong>relevant info</strong> only.</p>
+            </div>
+          </div>
+        <% end %>
        <% end %>
-      </ul>
+     </div>
     </div>
   </div>
-
-
 </div>
-
-

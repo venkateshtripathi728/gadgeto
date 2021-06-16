@@ -31,8 +31,6 @@ class BookingsController < ApplicationController
 
   end
 
-
-
   def update
     @booking.update(booking_params)
   end
