@@ -22,7 +22,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to tool_path(@tool)
     else
-      render "tools/index"
+      render "tools/show"
     end
     authorize @booking
   end
