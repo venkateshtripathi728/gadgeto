@@ -24,6 +24,7 @@ class ToolsController < ApplicationController
 
   def create
     @tool = Tool.new(tools_params)
+ 
     @tool.user = current_user
     if @tool.save
       redirect_to tool_path(@tool)

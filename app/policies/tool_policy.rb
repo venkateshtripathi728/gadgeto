@@ -20,6 +20,5 @@ class ToolPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
-  end
-  
+  end  
 end
