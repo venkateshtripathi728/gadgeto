@@ -15,7 +15,7 @@
     <div class="product-description">
       
       <span><%=@tool.category%></span>
-      <h1><%=@tool.tool_name%></h1>
+      <h1><%=@tool.tool_name.capitalize%></h1>
       <p><%= @tool.tool_description%></p>
     </div>
  
@@ -23,10 +23,10 @@
       <span><%=@tool.price%> €</span>
       <a href="#" class="btn-flat">Book now</a>
     </div>
-    <div>
+    <div class="my-3">
     <% if current_user === @tool.user %>
-      <%= link_to "Edit", edit_tool_path, method: :delete, class: "btn btn-flat" %>
-      <%= link_to "Delete", tool_path, method: :delete, class: "btn btn-flat" %>
+      <%= link_to "Edit", edit_tool_path, class: "btn btn-edit" %>
+      <%= link_to "Delete", tool_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-delete m-2" %>
     <% end %>
   </div>
   </div>
