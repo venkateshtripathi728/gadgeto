@@ -15,12 +15,20 @@ const initMapbox = () => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10'
+      style: 'mapbox://styles/thomassdug/ckpzazrcs1j2e17k4ris00j6u'
     });
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
-    new mapboxgl.Marker()
+    const popup = new mapboxgl.Popup().setHTML(marker.info_window);
+      const element = document.createElement('div');
+        element.className = 'marker';
+        element.style.backgroundImage = `url('https://image.flaticon.com/icons/png/512/1397/1397898.png')`;
+        element.style.backgroundSize = 'contain';
+        element.style.width = '40px';
+        element.style.height = '40px';
+    new mapboxgl.Marker(element)
       .setLngLat([ marker.lng, marker.lat ])
+      .setPopup(popup)
       .addTo(map);
     });
     fitMapToMarkers(map, markers);

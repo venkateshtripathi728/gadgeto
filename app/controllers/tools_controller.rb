@@ -12,7 +12,7 @@ class ToolsController < ApplicationController
   def show
     authorize @tool
 
-    @markers = [{ lat: @tool.latitude, lng: @tool.longitude }]
+    @markers = [{ lat: @tool.latitude, lng: @tool.longitude, info_window: render_to_string(partial: "info_window", locals: { tool: @tool }),image_url: helpers.asset_url('https://image.flaticon.com/icons/png/512/1397/1397898.png') }]
 
     @booking = Booking.new
   end
