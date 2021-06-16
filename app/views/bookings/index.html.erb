@@ -25,16 +25,23 @@
            <%end %>
             <div class="card-booking-infos">
               <h2><%=booking.tool.tool_name%></h2>
-              <p>Product description with <strong>relevant info</strong> only.</p>
+              <p>From <%= booking.start_date %> to <%= booking.end_date%></p>
             </div>
+            <div class="avatar-card-booking">
+              <% if booking.tool.user.photo.attached? %>
+                <%= cl_image_tag(booking.tool.user.photo.key, class: "avatar-small-booking") %>
+              <% else %>
+                <%= cl_image_tag("ylqaiehw0slcqpsbivst.png", class: "avatar-small-booking") %>
+              <% end %>
+          </div>
           </div>
         <% end %>
-       <% end %>
+        <% end %>
      </div>
    </div>
    <div class="column-booking">
     <div class="row justify-content-md-center">
-      My tools
+      <p>My tools booked</p>
     </div>
       <div class="card-booking-right">
        <% @bookings.each do |booking|%>
@@ -44,13 +51,21 @@
               <%= cl_image_tag(booking.tool.photo.key, class:"card-booking-img")%>
             <%else %>
             <%=  cl_image_tag("ylqaiehw0slcqpsbivst.png", class:"card-booking-img") %>
-           <%end %>            <div class="card-booking-infos">
+           <%end %>
+           <div class="card-booking-infos">
               <h2><%=booking.tool.tool_name%></h2>
-              <p>Product description with <strong>relevant info</strong> only.</p>
+              <p>From <%= booking.start_date %> to <%= booking.end_date%></p>
             </div>
+          <div class="avatar-card-booking">
+            <% if booking.user.photo.attached? %>
+              <%= cl_image_tag(booking.user.photo.key, class: "avatar-small-booking") %>
+            <% else %>
+              <%= cl_image_tag("ylqaiehw0slcqpsbivst.png", class: "avatar-small-booking") %>
+            <% end %>
+          </div>
           </div>
         <% end %>
-       <% end %>
+        <% end %>
      </div>
     </div>
   </div>
