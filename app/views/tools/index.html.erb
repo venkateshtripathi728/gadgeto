@@ -1,26 +1,25 @@
 
 <div class="category-tools">
-   <div class="category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80)">
-     Gardening 🪴
+   <div class="category btn-flat" >
+     Gardening 👨‍🌾
    </div>
 
-   <div class="category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1461344577544-4e5dc9487184?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80)">
+   <div class="category btn-flat" >
      Painting 👨‍🎨
    </div>
 
-   <div class="category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1593012672048-bd111f93506f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80)">
+   <div class="category btn-flat" >
      Large works 👷‍♂️
    </div>
 
-   <div class="category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80)">
+   <div class="category btn-flat" >
      Mechanics 🧰
    </div>
 
-   <div class="category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80)">
+   <div class="category btn-flat" >
      Plumbing 🤿
    </div>
-
-   <div class="category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1473308822086-710304d7d30c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80)">
+   <div class="category btn-flat" >
      Electricity ⚡️
    </div>
 </div>
@@ -33,11 +32,16 @@
   <div class ="product-cards">
   <%= link_to tool_path(tool), class: "product-cards-link" do %>
     <div class="product-infos">
-      <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80">
+        <% if tool.photo.attached? %>
+          <%= cl_image_tag(tool.photo.key)%>
+         <%else %>
+          <%=  cl_image_tag("ylqaiehw0slcqpsbivst.png") %>
+           <%end %>
         <h2><%=  tool.tool_name.capitalize %></h2>
+        <div class="d-flex justify-content-between m-3">
         <p><%=tool.tool_description.capitalize %></p>
-        <h1><%= tool.price.to_s+"€"%></h1>
-
+        <h1><%= tool.price.to_s+"€"%> / Day</h1>
+       </div>
     </div>
     <% end %>
   </div>
