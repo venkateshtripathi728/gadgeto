@@ -38,7 +38,10 @@
 .card-booking-img {
   height: 100%;
   width: 120px;
-  object-fit: cover;
+  object-fit: contain;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-booking h2 {
@@ -55,6 +58,6 @@
   margin-top: 8px;
 }
 
-// .card-booking .card-booking-infos {
-//   padding: 16px;
-// }
+.card-booking-infos {
+  padding: 60px;
+}
