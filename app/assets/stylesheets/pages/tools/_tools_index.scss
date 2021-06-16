@@ -35,6 +35,7 @@
   flex-direction: column;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 2px;
+  position: relative;
   transition: all 0.3s;
   .img{size: 100%;}
 }
@@ -45,8 +46,8 @@
 }
 
 
-.product-tools img {
-  background-size: cover;
+.product-infos img {
+  object-fit: contain;
   background-position: center;
   height: 200px;
   justify-content: center;
@@ -55,7 +56,7 @@
   box-shadow: 0 0 5px 0  rgba(0,0,0,0.2);
 }
 
-.product-infos{
+.product-picture{
   margin: 0px;
 }
 
