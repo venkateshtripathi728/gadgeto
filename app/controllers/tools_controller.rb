@@ -11,6 +11,7 @@ class ToolsController < ApplicationController
   
   def show     
     authorize @tool
+    @booking = Booking.new
   end
 
   def new

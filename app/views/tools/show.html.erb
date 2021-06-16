@@ -1,19 +1,21 @@
 <div class="product-container">
  
 
-  <div class="product-left-column">
+  <div class="product-left-column col-8 ">
     <% if @tool.photo.attached? %>
-          <%= cl_image_tag(@tool.photo.key) %>
+          <%= cl_image_tag(@tool.photo.key)%>
          <%else %>
           <%=  cl_image_tag("ylqaiehw0slcqpsbivst.png") %>
            <%end %>
   </div>
  
  
-  <div class="product-right-column">
- 
-    <div class="product-description">
-      
+  <div class="product-right-column col-3">
+   <% if current_user === @tool.user %>
+      <span class="badge bg-light text-dark">You are the owner of this product</span>
+    <% end %>
+    <div class="product-description ">
+    
       <span><%=@tool.category%></span>
       <h1><%=@tool.tool_name.capitalize%></h1>
       <p><%= @tool.tool_description%></p>
@@ -21,13 +23,22 @@
  
     <div class="product-price">
       <span><%=@tool.price%> €</span>
-      <a href="#" class="btn-flat">Book now</a>
     </div>
     <div class="my-3">
     <% if current_user === @tool.user %>
       <%= link_to "Edit", edit_tool_path, class: "btn btn-edit" %>
       <%= link_to "Delete", tool_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-delete m-2" %>
+   <%else  %>
+    <div >
+  <div class="form-inputs ">
+    <%= simple_form_for @booking, method: "get" do |f| %>
+      <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.button :submit, "Book now", class: "btn btn-flat" %>
     <% end %>
+     <% end %>
+  </div>
+</div>
   </div>
   </div>
 </div>
