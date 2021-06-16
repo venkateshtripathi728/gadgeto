@@ -11,7 +11,10 @@ class ToolsController < ApplicationController
   
   def show
     authorize @tool
+
     @markers = [{ lat: @tool.latitude, lng: @tool.longitude }]
+
+    @booking = Booking.new
   end
 
   def new
