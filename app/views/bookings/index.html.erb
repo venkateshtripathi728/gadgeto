@@ -1,5 +1,38 @@
-<ul>
-<% @bookings.each do |booking|%>
-<li><%= booking.status%></li>
-<% end %>
-</ul>
+<style>
+.vl {
+  border-left: 6px solid green;
+  height: 500px;
+}
+</style>
+
+
+<div class="m-3">
+  <h2>Manage your bookings</h2>
+
+  <div class="row">
+   <div class="column border-right">
+      <div class="row justify-content-md-center">
+        My Bookings
+      </div>
+      <ul>
+       <% @bookings.each do |booking|%>
+         <li><%= booking.status%></li>
+       <% end %>
+      </ul>
+   </div>
+   <div class="column">
+    <div class="row justify-content-md-center">
+      My tools
+    </div>
+     <ul>
+       <% @bookings.each do |booking|%>
+         <li><%= booking.status%></li>
+       <% end %>
+      </ul>
+    </div>
+  </div>
+
+
+</div>
+
+

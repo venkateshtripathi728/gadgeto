@@ -1,0 +1,13 @@
+.row {
+  display: flex;
+  margin: 50px;
+}
+
+.column {
+  flex: 50%;
+}
+
+
+.border-right {
+  border-right: 1px solid black;
+}
