@@ -67,8 +67,8 @@
        </div>
     </div>
     <div class="avatar-card">
-      <% if current_user.photo.attached? %>
-        <%= cl_image_tag(current_user.photo.key, class: "avatar-small") %>
+      <% if tool.user.photo.attached? %>
+        <%= cl_image_tag(tool.user.photo.key, class: "avatar-small") %>
       <% else %>
         <%= cl_image_tag("ylqaiehw0slcqpsbivst.png", class: "avatar-small") %>
       <%end %>
