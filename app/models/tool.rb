@@ -7,4 +7,6 @@ class Tool < ApplicationRecord
   validates :address, presence: true
   validates :tool_description, presence: true,length: {minimum:10}
   has_many :bookings
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end
