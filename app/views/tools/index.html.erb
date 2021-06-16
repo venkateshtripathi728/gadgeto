@@ -36,15 +36,24 @@
           <%= cl_image_tag(tool.photo.key)%>
          <%else %>
           <%=  cl_image_tag("ylqaiehw0slcqpsbivst.png") %>
-           <%end %>
+          <% end %>
         <h2><%=  tool.tool_name.capitalize %></h2>
-        <div class="d-flex justify-content-between m-3">
-        <p><%=tool.tool_description.capitalize %></p>
-        <h1><%= tool.price.to_s+"€"%> / Day</h1>
+        <div class="product-price d-flex justify-content-between m-3">
+        <p><%=tool.tool_description.capitalize.first(30) %></p>
+        <h1><%= tool.price.to_s+"€"%> / day</h1>
        </div>
+    </div>
+    <div class="avatar-card">
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag(current_user.photo.key, class: "avatar-small") %>
+      <% else %>
+        <%= cl_image_tag("ylqaiehw0slcqpsbivst.png", class: "avatar-small") %>
+      <%end %>
     </div>
     <% end %>
   </div>
   
  <% end %>
 </div>
+
+
