@@ -19,7 +19,8 @@
   <div class="row justify-content-md-center">
     <div class="col-6",class="form-control:focus">
       <%= f.input :category,
-                  required: true %>
+                  required: true,
+                  :collection => %w[Gardening Painting Large\ Works Mechanics Plumbing Electricity] %>
     </div>
   </div>
   <div class="row justify-content-md-center">

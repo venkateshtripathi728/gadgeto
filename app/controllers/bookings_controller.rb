@@ -19,10 +19,10 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @tool = Tool.find(params[:tool_id])
     @booking.tool = @tool
-    if @booking.save!
-      redirect_to bookings_path
+    if @booking.save
+      redirect_to tool_path(@tool)
     else
-      render "tools/index"
+      render "tools/show"
     end
     authorize @booking
   end
