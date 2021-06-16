@@ -1,26 +1,26 @@
 
 <div class="category-tools">
    <div class="category btn" >
-     Gardening 👨‍🌾
+     Gardening    <%=cl_image_tag("m7zkxnhxztin8ahpspqt.png", class:"icon")%>
    </div>
 
    <div class="category btn" >
-     Painting 👨‍🎨
+     Painting   <%=cl_image_tag("zqh8jlopj8stfn78apg9.png", class:"icon")%>
    </div>
 
    <div class="category btn" >
-     Large works 👷‍♂️
+     Large works  <%=cl_image_tag("xvagpzn3fgk7slw9gmky.png", class:"icon")%>
    </div>
    <div class="category btn" >
-     Mechanics 🧰
-   </div>
-
-   <div class="category btn" >
-     Plumbing 🤿
+     Mechanics  <%=cl_image_tag("zyescy28kdutceas3osf.png", class:"icon")%>
    </div>
 
    <div class="category btn" >
-     Electricity ⚡️
+     Plumbing  <%=cl_image_tag("kq6wktdf0nnvhmwuztnf.png", class:"icon")%>
+   </div>
+
+   <div class="category btn" >
+     Electricity  <%=cl_image_tag("kwujoj93jtz6ilmnc4cz.png", class:"icon")%>
    </div>
 </div>
 
@@ -67,8 +67,8 @@
        </div>
     </div>
     <div class="avatar-card">
-      <% if current_user.photo.attached? %>
-        <%= cl_image_tag(current_user.photo.key, class: "avatar-small") %>
+      <% if tool.user.photo.attached? %>
+        <%= cl_image_tag(tool.user.photo.key, class: "avatar-small") %>
       <% else %>
         <%= cl_image_tag("ylqaiehw0slcqpsbivst.png", class: "avatar-small") %>
       <%end %>

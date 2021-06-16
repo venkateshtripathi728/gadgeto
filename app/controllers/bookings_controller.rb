@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     @tool = Tool.find(params[:tool_id])
     @booking.tool = @tool
     if @booking.save
-      redirect_to tool_path(@tool)
+      redirect_to bookings_path
     else
       render "tools/show"
     end
