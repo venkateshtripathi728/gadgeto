@@ -2,14 +2,14 @@ class BookingPolicy < ApplicationPolicy
 
   def create?
     return true
-  end
+  end 
 
   def show?
     record.user == user
   end
 
   def update?
-    record.user == user
+    record.user == user 
   end
 
   def accept?
