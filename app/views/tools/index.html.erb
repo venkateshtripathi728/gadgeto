@@ -56,10 +56,10 @@
   <%= link_to tool_path(tool), class: "product-cards-link" do %>
     <div class="product-infos">
     <% if tool.user === current_user %>
-
         <span class="notify-badge">Host</span>
         <%= link_to "Delete", tool_path(tool), method: :delete, data: { confirm: "Are you sure?" }, class:"notify-badge-delete" %>
-        <% end %>
+    <% end %>
+
         <% if tool.photo.attached? %>
           <%= cl_image_tag(tool.photo.key)%>
          <%else %>
