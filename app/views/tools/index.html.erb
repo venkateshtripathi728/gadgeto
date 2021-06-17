@@ -63,7 +63,7 @@
     <div class="product-infos">
     <% if tool.user === current_user %>
         <span class="notify-badge">Host</span>
-        <%= link_to "Delete", tool_path(tool), method: :delete, data: { confirm: "Are you sure?" }, class:"notify-badge-delete" %>
+        <%= link_to <i class="far fa-times-circle"></i>, tool_path(tool), method: :delete, data: { confirm: "Are you sure?" }, class:"notify-badge-delete" %>
     <% end %>
 
         <% if tool.photo.attached? %>
