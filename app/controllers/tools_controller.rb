@@ -4,16 +4,22 @@ class ToolsController < ApplicationController
   
 
   def index
-
+    if user_signed_in?
+    @tools = policy_scope(Tool).where("user_id !=?" , current_user.id).order(created_at: :desc)
+    else
     @tools = policy_scope(Tool).order(created_at: :desc)
+    end
 
   end
+
+  def mytools
+    @tools = policy_scope(Tool).where("user_id =?" , current_user.id).order(created_at: :desc)
+  end
+  
   
   def show
     authorize @tool
-
     @markers = [{ lat: @tool.latitude, lng: @tool.longitude, info_window: render_to_string(partial: "info_window", locals: { tool: @tool }),image_url: helpers.asset_url('https://image.flaticon.com/icons/png/512/1397/1397898.png') }]
-
     @booking = Booking.new
   end
 
@@ -24,7 +30,6 @@ class ToolsController < ApplicationController
 
   def create
     @tool = Tool.new(tools_params)
- 
     @tool.user = current_user
     if @tool.save
       redirect_to tool_path(@tool)
