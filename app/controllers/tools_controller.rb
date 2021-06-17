@@ -4,12 +4,29 @@ class ToolsController < ApplicationController
   
 
   def index
-    if user_signed_in?
-    @tools = policy_scope(Tool).where("user_id !=?" , current_user.id).order(created_at: :desc)
-    else
-    @tools = policy_scope(Tool).order(created_at: :desc)
-    end
 
+    if user_signed_in?
+      if params[:query].present?
+       @tools = policy_scope(Tool).order(created_at: :desc).where("user_id !=?" , current_user.id).where("tool_name ILIKE ?", "%#{params[:query]}%")
+       if @tools.empty?
+         flash[:msg] = "Looks like no one proposed #{params[:query]}, see all tools below"
+        redirect_to action: "index"
+       end
+      else
+       @tools = policy_scope(Tool).where("user_id !=?" , current_user.id).order(created_at: :desc)
+      end
+
+    else
+       if params[:query].present?
+       @tools = policy_scope(Tool).order(created_at: :desc).where("tool_name ILIKE ?", "%#{params[:query]}%")
+       if @tools.empty?
+         flash[:msg] = "Looks like no one proposed #{params[:query]}, see all tools below"
+        redirect_to action: "index"
+       end
+      else
+       @tools = policy_scope(Tool).order(created_at: :desc)
+      end
+    end
   end
 
   def mytools

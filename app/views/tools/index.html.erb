@@ -48,6 +48,12 @@
 </form>
 </div>
 
+<% if flash[:msg] %>
+  <div class="flash-message text-center">
+    <h3><%= flash[:msg] %></h3>
+  </div>
+<% end %>
+
 <div class="product-tools">
 
   <% @tools.each do |tool| %>
