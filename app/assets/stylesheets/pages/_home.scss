@@ -6,8 +6,12 @@ body {
 h2 {
   text-align: center;
   font-weight: bolder;
-  margin-top: 50px;
-  margin-bottom: 20px;
+  margin-top: 60px;
+  margin-bottom: 50px;
+}
+
+#why {
+  margin-bottom: 15px;
 }
 
 mark {
@@ -30,3 +34,17 @@ mark {
 .form-control-home {
   width: 75%;
 }
+
+.green-section {
+  background-color: rgba(55, 255, 139, 0.1);
+  padding: 1px 0 50px 0;
+}
+
+.fa-star {
+  color: #37FF8B;
+}
+
+.fa-star-half-alt {
+  color: #37FF8B;
+}
+
