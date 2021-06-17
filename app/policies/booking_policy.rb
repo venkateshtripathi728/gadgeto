@@ -12,10 +12,18 @@ class BookingPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def accept?
+    return true
+  end
+
+  def decline?
+    return true
+  end
+
   def destroy?
     record.user == user
   end
-  
+
   class Scope < Scope
     def resolve
       scope.all
