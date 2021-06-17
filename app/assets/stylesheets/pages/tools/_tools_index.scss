@@ -11,7 +11,16 @@
 
   border-radius: 5px;
   border: solid 1px #273439 ;
+  &.active {
+    background-color:rgba(55, 255, 139, 0.1);
+  }
 }
+
+.category-btn:hover {
+  cursor:pointer;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
 
 .category-tools {
   display: grid;
