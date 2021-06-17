@@ -6,7 +6,7 @@
       <% end %>
     <div>
       <ul class="navbar-nav mr-auto" id="indextoactive">
-  
+
         <li class="nav-item <%= 'active-item' if current_page?(tools_path) %>">
           <%= link_to "Tools", tools_path, class: "link-nav" %>
         </li>
@@ -19,11 +19,8 @@
          <li class="nav-item <%= 'active-item' if current_page?(mytools_path) %>">
           <%= link_to "My Tools", mytools_path, class: "link-nav" %>
         </li>
-        
-        <li class="nav-item <%= 'active-item' if current_page?(new_tool_path) %>">
-          <%= link_to "Add a tool", new_tool_path, class: "link-nav" %>
-          <%end %>
-        </li>
+
+      <%end %>
       </ul>
     </div>
     <div>
@@ -41,7 +38,7 @@
            <%end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <h3 class= "dropdown-item"><%= current_user.user_name %></h3>
-         
+
             <%= link_to "Edit Profile",edit_user_registration_path , class: "dropdown-item" %>
 
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
