@@ -59,15 +59,15 @@
   <% @tools.each do |tool| %>
   
   <div class ="product-cards" data-filter='<%= tool.category.capitalize%>'>
-  <%= link_to tool_path(tool), class: "product-cards-link" do %>
+
     <div class="product-infos">
     <% if tool.user === current_user %>
-        <span class="notify-badge">Host</span>
+        <span class="notify-badge">Owner</span>
         <%= link_to tool_path(tool), method: :delete, data: { confirm: "Are you sure?" }, class:"notify-badge-delete" do %>
         <i class="far fa-times-circle"></i>
           <% end %>
     <% end %>
-
+  <%= link_to tool_path(tool), class: "product-cards-link" do %>
         <% if tool.photo.attached? %>
           <%= cl_image_tag(tool.photo.key)%>
          <%else %>

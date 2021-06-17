@@ -22,7 +22,7 @@
     </div>
  
     <div class="product-price">
-      <span><%=@tool.price%> € per day</span>
+      <span id="price" ><%=@tool.price%> € per day</span>
     </div>
     <div class="my-3">
     <% if current_user === @tool.user %>
@@ -34,6 +34,8 @@
     <%= simple_form_for [@tool,@booking] do |f| %>
       <%= f.input :start_date, as: :string, input_html: {id: "range_start"} %>
       <%= f.input :end_date, as: :string, input_html: {id: "range_end"} %>
+
+
       <%= f.button :submit, "Book now", class: "btn btn-flat" %>
     <% end %>
      <% end %>
@@ -42,7 +44,25 @@
   </div>
   </div>
 </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-8 text-center">
 
+        <div class="form-container">
+
+
+          <div class="flex-between">
+              <span id="counter" data-count="1">1</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
 <div class="container">
 <div class="card-owner">
    <% if @tool.user.photo.attached? %>
