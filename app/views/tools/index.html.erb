@@ -55,14 +55,22 @@
   <div class ="product-cards">
   <%= link_to tool_path(tool), class: "product-cards-link" do %>
     <div class="product-infos">
+    <% if tool.user === current_user %>
+
+        <span class="notify-badge">Host</span>
+        <%= link_to "Delete", tool_path(tool), method: :delete, data: { confirm: "Are you sure?" }, class:"notify-badge-delete" %>
+        <% end %>
         <% if tool.photo.attached? %>
           <%= cl_image_tag(tool.photo.key)%>
          <%else %>
           <%=  cl_image_tag("ylqaiehw0slcqpsbivst.png") %>
           <% end %>
         <h2><%=  tool.tool_name.capitalize %></h2>
-        <div class="product-price d-flex justify-content-between m-3">
+        <div class="product-price d-flex justify-content-between m-2">
+        <div>
         <p><%=tool.tool_description.capitalize.first(30) %></p>
+        <p><i class="fas fa-map-marker-alt"></i> <%=tool.address.first(30) %></p>
+        </div>
         <h1><%= tool.price.to_s+"€"%> / day</h1>
        </div>
     </div>
