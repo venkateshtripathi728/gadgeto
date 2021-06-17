@@ -28,7 +28,7 @@
 }
 
 .card-booking {
-  height: 90px;
+  height: 130px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
@@ -44,10 +44,24 @@
   align-items: center;
 }
 
+.card-booking-right-infos {
+  padding-left: 60px;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-booking-left-infos {
+  margin-left: 60px;
+  align-items: center;
+  justify-content: center;
+}
+
 .card-booking h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  align-text: center;
+
 }
 
 .card-booking p {
@@ -56,8 +70,50 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+  align-text: center;
+
 }
 
-.card-booking-infos {
-  padding: 60px;
+#status-pending {
+  background-color: orange;
+  text-align: center;
+  justify-content: center;
+
+}
+#status-approved {
+  background-color: #37FF8B;
+  text-align: center;
+
+}
+
+#status-declined {
+  background-color: red;
+  text-align: center;
+
+}
+
+.accept-decline-booking{
+  padding-left: 70px;
+
+}
+
+.fa-check-circle {
+  color: #37FF8B;
+  font-size: 25px;
+}
+
+.fa-times-circle {
+  color: red;
+  font-size: 25px;
+}
+
+
+.avatar-left-card-booking p {
+  text-align: center;
+  font-size: 15px
+}
+
+.avatar-right-card-booking p {
+  text-align: center;
+  font-size: 15px
 }
