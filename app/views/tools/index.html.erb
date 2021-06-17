@@ -1,6 +1,6 @@
 
 <div class="category-tools">
-   <div class="category-btn active"  data-filter= "gardening" >
+   <div class="category-btn active"  data-filter= "Gardening" >
      Gardening    <%=cl_image_tag("m7zkxnhxztin8ahpspqt.png", class:"icon")%>
    </div>
 
@@ -58,7 +58,7 @@
 
   <% @tools.each do |tool| %>
   
-  <div class ="product-cards" data-filter='<%= tool.category%>'>
+  <div class ="product-cards" data-filter='<%= tool.category.capitalize%>'>
   <%= link_to tool_path(tool), class: "product-cards-link" do %>
     <div class="product-infos">
     <% if tool.user === current_user %>
