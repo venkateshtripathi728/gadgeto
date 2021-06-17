@@ -23,16 +23,25 @@
             <%else %>
             <%=  cl_image_tag("ylqaiehw0slcqpsbivst.png", class:"card-booking-img") %>
            <%end %>
-            <div class="card-booking-infos">
+            <div class="card-booking-right-infos">
               <h2><%=booking.tool.tool_name%></h2>
               <p>From <%= booking.start_date %> to <%= booking.end_date%></p>
+              <% if booking.status === "pending"  %>
+                <p id="status-pending"><%= booking.status %></p>
+              <%elsif booking.status === "approved"  %>
+                <p id="status-approved"><%= booking.status %></p>
+              <%else%>
+                <p id="status-declined"><%= booking.status %></p>
+              <%end %>
             </div>
-            <div class="avatar-card-booking">
+            <div class="avatar-left-card-booking">
               <% if booking.tool.user.photo.attached? %>
                 <%= cl_image_tag(booking.tool.user.photo.key, class: "avatar-small-booking") %>
               <% else %>
                 <%= cl_image_tag("ylqaiehw0slcqpsbivst.png", class: "avatar-small-booking") %>
               <% end %>
+              <p><%= booking.tool.user.user_name %></p>
+
           </div>
           </div>
         <% end %>
@@ -52,16 +61,28 @@
             <%else %>
             <%=  cl_image_tag("ylqaiehw0slcqpsbivst.png", class:"card-booking-img") %>
            <%end %>
-           <div class="card-booking-infos">
+           <div class="card-booking-right-infos">
               <h2><%=booking.tool.tool_name%></h2>
-              <p>From <%= booking.start_date %> to <%= booking.end_date%></p>
-            </div>
-          <div class="avatar-card-booking">
+              <p id="date">From <%= booking.start_date %> to <%= booking.end_date%></p>
+              <% if booking.status === "pending"  %>
+                <p id="status-pending"><%= booking.status %></p>
+              <%elsif booking.status === "approved"  %>
+                <p id="status-approved"><%= booking.status %></p>
+              <%else%>
+                <p id="status-declined"><%= booking.status %></p>
+              <%end %>
+          </div>
+          <div class="avatar-right-card-booking">
             <% if booking.user.photo.attached? %>
               <%= cl_image_tag(booking.user.photo.key, class: "avatar-small-booking") %>
             <% else %>
               <%= cl_image_tag("ylqaiehw0slcqpsbivst.png", class: "avatar-small-booking") %>
             <% end %>
+          <p><%= booking.user.user_name %></p>
+          </div>
+          <div class= "accept-decline-booking">
+            <%= link_to ('<i class="far fa-check-circle"></i>').html_safe, accept_booking_path(booking), method: :patch%>
+            <%= link_to ('<i class="far fa-times-circle"></i>').html_safe, decline_booking_path(booking), method: :patch%>
           </div>
           </div>
         <% end %>
