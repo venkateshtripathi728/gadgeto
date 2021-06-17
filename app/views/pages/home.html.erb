@@ -10,11 +10,10 @@
   </div>
 </div>
 
-<div class="container">
 
 <!-- WHY GADGETO ? -->
-  <h2>Why <mark>gadgeto</mark> ?</h2>
-
+<div class="container">
+  <h2 id="why">Why <mark>gadgeto</mark> ?</h2>
   <div class="card-group">
     <div class="card" style="width: 18rem;">
       <div class="card-img-top">
@@ -41,47 +40,130 @@
       </div>
     </div>
   </div>
+</div>
+
 
 <!-- CAROUSEL REVIEWS -->
-  <h2>They are <mark>talking</mark> about us !</h2>
-
-  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active text-center">
-        <div class="card review d-block" style="width: 30rem;">
-          <div class="card-body-review">
-            <h5 class="card-title">Grégoire</h5>
-            <h6 class="card-subtitle mb-2 text-muted">CTO</h6>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+<div class="green-section">
+  <div class="container">
+    <h2>They are <mark>talking</mark> about us !</h2>
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active text-center">
+          <div class="card card-home review d-block" style="width: 30rem;">
+            <div class="card-body-review">
+              <h5 class="card-title">Julie</h5>
+              <div class="stars d-flex justify-content-center my-2">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="quote d-flex">
+              <i class="fas fa-quote-left"></i>
+              <p class="card-text"><em>This app really saved my life when I had to repaint my wall !</em></p>
+              </div>
+              <div class="avatar-review">
+                <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80" alt="">
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="carousel-item text-center">
-        <div class="card review d-block" style="width: 30rem;">
-          <div class="card-body-review">
-            <h5 class="card-title">Maxence</h5>
-            <h6 class="card-subtitle mb-2 text-muted">CEO</h6>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <div class="carousel-item text-center">
+          <div class="card card-home review d-block" style="width: 30rem;">
+            <div class="card-body-review">
+              <h5 class="card-title">Maxence</h5>
+              <div class="stars d-flex justify-content-center my-2">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="quote d-flex">
+              <i class="fas fa-quote-left"></i>
+              <p class="card-text"><em>I used gadgeto to rent a lawnmower and the service was perfect.</em></p>
+              </div>
+              <div class="avatar-review">
+                <img src="https://images.unsplash.com/photo-1544348817-5f2cf14b88c8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80" alt="">
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="carousel-item text-center">
-        <div class="card review d-block" style="width: 30rem;">
-          <div class="card-body-review">
-            <h5 class="card-title">Venkatesh</h5>
-            <h6 class="card-subtitle mb-2 text-muted">CFO</h6>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <div class="carousel-item text-center">
+          <div class="card card-home review d-block" style="width: 30rem;">
+            <div class="card-body-review">
+              <h5 class="card-title">Bryan</h5>
+              <div class="stars d-flex justify-content-center my-2">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <div class="quote d-flex">
+                <i class="fas fa-quote-left"></i>
+                <p class="card-text"><em>I broke my screwdriver but was able to replace it quickly thanks to gadgeto !</em></p>
+              </div>
+              <div class="avatar-review">
+                <img src="https://images.unsplash.com/photo-1541647376583-8934aaf3448a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80" alt="">
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+
+
+<!-- LATEST PRODUCTS -->
+<div class="container">
+  <h2>Discover the <mark>latest products</mark> posted by our community</h2>
+</div>
+<div class="latest">
+<div class="product-tools">
+  <% Tool.last(4).each do |tool| %>
+  <div class ="product-cards" data-filter='<%= tool.category%>'>
+    <%= link_to tool_path(tool), class: "product-cards-link" do %>
+    <div class="product-infos">
+      <% if tool.photo.attached? %>
+        <%= cl_image_tag(tool.photo.key)%>
+      <%else %>
+        <%= cl_image_tag("ylqaiehw0slcqpsbivst.png") %>
+      <% end %>
+      <h2><%=  tool.tool_name.capitalize %></h2>
+      <div class="product-price d-flex justify-content-between m-2">
+        <div>
+          <p><%=tool.tool_description.capitalize.first(30) %></p>
+          <p><i class="fas fa-map-marker-alt"></i> <%=tool.address.first(30) %></p>
+        </div>
+        <h1><%= tool.price.to_s+"€"%> / day</h1>
+      </div>
+    </div>
+    <div class="avatar-card">
+      <% if tool.user.photo.attached? %>
+        <%= cl_image_tag(tool.user.photo.key, class: "avatar-small") %>
+      <% else %>
+        <%= cl_image_tag("ylqaiehw0slcqpsbivst.png", class: "avatar-small") %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+ <% end %>
+</div>
+</div>
+
+
 
 <!-- SEARCH BAR -->
+<div class="container">
   <h2>What are you <mark>looking</mark> for ?</h2>
   <div class="search-form">
-        <h3 class="text-center">Your turn to search for your first tools and join <strong>gadgeto</strong> community.</h3>
-        <p class="text-center">Find the more adapted tool for your needs between more than 100,000 tools !</p>
+    <h3 class="text-center">Your turn to search for your first tools and join <strong>gadgeto</strong> community.</h3>
+    <p class="text-center">Find the more adapted tool for your needs between more than 100,000 tools !</p>
     <div class="form-group">
       <%= form_tag tools_path, method: :get do %>
       <%= text_field_tag :query,
@@ -93,8 +175,7 @@
       <button name="button" type="submit" class="btn btn-flat-search">
         <i class="fas fa-search"></i> Search
       </button>
-   </div>
- </div>
+    </div>
+  </div>
 <% end %>
 </div>
-
