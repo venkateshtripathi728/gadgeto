@@ -4,9 +4,15 @@ class ToolsController < ApplicationController
   
 
   def index
-
-    @tools = policy_scope(Tool).order(created_at: :desc)
-
+    if params[:query].present?
+      @tools = policy_scope(Tool).order(created_at: :desc).where("tool_name ILIKE ?", "%#{params[:query]}%")
+      if @tools.empty?
+        flash[:msg] = "Looks like no one proposed #{params[:query]}, see all tools below"
+        redirect_to action: "index"
+      end
+    else
+      @tools = policy_scope(Tool).order(created_at: :desc)
+    end
   end
   
   def show
