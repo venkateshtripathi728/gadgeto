@@ -48,21 +48,14 @@
 </form>
 </div>
 
-<% if flash[:msg] %>
-  <div class="flash-message text-center">
-    <h3><%= flash[:msg] %></h3>
-  </div>
-<% end %>
-
 <div class="product-tools">
 
   <% @tools.each do |tool| %>
   
   <div class ="product-cards">
-  <%= link_to tool_path(tool), class: "product-cards-link" do %>
+  <%=link_to "/tools", class: "product-cards-link" do %>
     <div class="product-infos">
     <% if tool.user === current_user %>
-
         <span class="notify-badge">Host</span>
         <%= link_to "Delete", tool_path(tool), method: :delete, data: { confirm: "Are you sure?" }, class:"notify-badge-delete" %>
         <% end %>
