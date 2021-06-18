@@ -105,6 +105,7 @@
 .btn-book:hover {
   background: #37FF8B;
   color: white;
+}
 
 .fa-check-circle {
   color: #37FF8B;
@@ -121,7 +122,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 .btn-plus {
@@ -130,8 +130,8 @@
   font-size: 40px;
   transition: background 0.3s ease;
   margin: 0 auto;
-  }
+}
 
 .btn-plus:hover {
-  color: black ;
+  color: black;
 }
