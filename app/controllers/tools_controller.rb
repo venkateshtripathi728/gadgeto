@@ -4,7 +4,7 @@ class ToolsController < ApplicationController
   
 
   def index
-
+  
     if user_signed_in?
       if params[:query].present?
        @tools = policy_scope(Tool).order(created_at: :desc).where("user_id !=?" , current_user.id).where("tool_name ILIKE ?", "%#{params[:query]}%")
@@ -30,7 +30,19 @@ class ToolsController < ApplicationController
   end
 
   def mytools
+    
     @tools = policy_scope(Tool).where("user_id =?" , current_user.id).order(created_at: :desc)
+    if params.slice(:tool,:address)[:address] !="" && params.slice(:tool,:address)[:tool] == ""
+      @tools = Tool.global_search(params.slice(:tool,:address)[:address])
+    end
+    if params.slice(:tool,:address)[:tool] !="" && params.slice(:tool,:address)[:address] == ""
+      @tools = Tool.global_search(params.slice(:tool,:address)[:tool])
+    end
+    if params.slice(:tool,:address)[:address] !="" && params.slice(:tool,:address)[:tool] !=""
+      @tools = Tool.global_search(params.slice(:tool,:address)[:address]).global_search(params.slice(:tool,:address)[:tool])
+    end
+
+   
   end
   
   
