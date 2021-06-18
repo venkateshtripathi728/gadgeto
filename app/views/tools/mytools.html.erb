@@ -1,3 +1,28 @@
+<div class="searchbar">
+<form>
+<%= form_tag tools_path, method: :get do %>
+  <div class="form-row">
+    <div class="col-5 py-1">
+    <%= text_field_tag :tool,
+    params[:tool],
+    class: "form-control",
+    placeholder: "Find a tool"%>
+    </div>
+    <div class="col-6 py-1">
+      <%= text_field_tag :address,
+    params[:address],
+    class: "form-control",
+    placeholder: "Find an address"%>
+    </div>
+    <%= submit_tag "Search", class: "btn btn-flat-search" %>
+    <% end %>
+     <%# <div class="col py-1" style="text-align:center">
+         <button name="button" type="submit" class="btn btn-flat-search" >       <i class="fas fa-search"></i> Search
+        </button>
+    </div> %>
+  </div>
+</form>
+</div>
 
 <div class="category-tools">
    <div class="category-btn" data-filter= "Gardening">
@@ -25,31 +50,7 @@
 </div>
 
 
-<div class="searchbar">
-<form>
-<%= form_tag tools_path, method: :get do %>
-  <div class="form-row">
-    <div class="col-5 py-1">
-    <%= text_field_tag :tool,
-    params[:tool],
-    class: "form-control",
-    placeholder: "Find a tool"%>
-    </div>
-    <div class="col-6 py-1">
-      <%= text_field_tag :address,
-    params[:address],
-    class: "form-control",
-    placeholder: "Find an address"%>
-    </div>
-    <%= submit_tag "Search", class: "btn btn-flat-search" %>
-    <% end %>
-     <%# <div class="col py-1" style="text-align:center">
-         <button name="button" type="submit" class="btn btn-flat-search" >       <i class="fas fa-search"></i> Search
-        </button>
-    </div> %>
-  </div>
-</form>
-</div>
+
 
 <% if flash[:msg] %>
   <div class="flash-message text-center">
@@ -60,7 +61,7 @@
 <div class="btn-add">
 
 <%= link_to ('<i class="fas fa-plus-circle"></i>').html_safe, new_tool_path, method: :get, class: "btn-plus"%>
-<p> Add your tool </p>
+<p> Add a tool </p>
 
 </div>
 
