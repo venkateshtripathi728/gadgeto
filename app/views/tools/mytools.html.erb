@@ -33,25 +33,25 @@
     <%= text_field_tag :tool,
     params[:tool],
     class: "form-control",
-    placeholder: "Find a tool"%>    
+    placeholder: "Find a tool"%>
     </div>
     <div class="col-5 py-1">
       <%= text_field_tag :address,
     params[:address],
     class: "form-control",
-    placeholder: "Find an address"%>    
+    placeholder: "Find an address"%>
     </div>
     <div class="col py-1">
       <%= text_field_tag :start_date,
           params[:start_date],
           class: "form-control",
-          placeholder: "Find a start date"%>    
+          placeholder: "Find a start date"%>
     </div>
     <div class="col py-1">
       <%= text_field_tag :end_date,
           params[:end_date],
           class: "form-control",
-          placeholder: "Find an end date"%>      
+          placeholder: "Find an end date"%>
       </div>
     <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
@@ -72,14 +72,14 @@
 <div class="btn-add">
 
 <%= link_to ('<i class="fas fa-plus-circle"></i>').html_safe, new_tool_path, method: :get, class: "btn-plus"%>
-<p> Add you tools </p>
+<p> Add your tool </p>
 
 </div>
 
 <div class="product-tools">
 
   <% @tools.each do |tool| %>
-  
+
   <div class ="product-cards" data-filter='<%= tool.category.capitalize%>'>
 
     <div class="product-infos">
@@ -104,7 +104,7 @@
         <p><i class="fas fa-map-marker-alt"></i> <%=tool.address.first(30) %></p>
         </div>
         <h1><%= tool.price.to_s+"€"%> / day</h1>
-  
+
        </div>
     </div>
     <div class="avatar-card">
@@ -116,7 +116,7 @@
     </div>
     <% end %>
   </div>
-  
+
  <% end %>
 </div>
 
