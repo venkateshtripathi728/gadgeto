@@ -15,6 +15,10 @@ class ToolPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def mytools?
+    return true
+  end
   
   class Scope < Scope
     def resolve
