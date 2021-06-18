@@ -26,7 +26,6 @@ class BookingsController < ApplicationController
       render "tools/show"
     end
     authorize @booking
-    raise
   end
 
   def edit

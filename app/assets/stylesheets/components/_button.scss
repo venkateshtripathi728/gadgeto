@@ -91,3 +91,18 @@
   color: #011627;
 }
 
+
+.btn-book {
+  color: #37FF8B;
+  border: solid 2px #37FF8B;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: white;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+.btn-book:hover {
+  background: #37FF8B;
+  color: white;
+}
