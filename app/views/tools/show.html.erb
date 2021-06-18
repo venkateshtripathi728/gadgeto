@@ -1,5 +1,5 @@
 <div class="product-container">
- 
+
 
   <div class="product-left-column col-8 ">
     <% if @tool.photo.attached? %>
@@ -8,19 +8,19 @@
           <%=  cl_image_tag("ylqaiehw0slcqpsbivst.png") %>
            <%end %>
   </div>
- 
- 
+
+
   <div class="product-right-column col-3">
    <% if current_user === @tool.user %>
       <span class="badge bg-light text-dark">You are the owner of this product</span>
     <% end %>
     <div class="product-description ">
-    
+
       <span><%=@tool.category%></span>
       <h1><%=@tool.tool_name.capitalize%></h1>
       <p><%= @tool.tool_description%></p>
     </div>
- 
+
     <div class="product-price">
       <h4 id="price" ><%=@tool.price%></h4> <h4>€ per day</h4>
     </div>
@@ -48,7 +48,7 @@
       <%= f.button :submit, "Book now", class: "btn btn-book", disabled: true, id: "book" %>
     <% end %>
      <% end %>
-     
+
    </div>
 </div>
   </div>
@@ -62,10 +62,10 @@
       <% else %>
         <%= cl_image_tag("ylqaiehw0slcqpsbivst.png", class: "avatar-large") %>
       <%end %>
-  
-  
+
+
   <div class="card-owner-content">
-    <p><%= @tool.user.user_name %></p>
+    <p id="owner-username"><%= @tool.user.user_name %></p>
     <p><%= @tool.user.description %></p>
   </div>
 
@@ -81,4 +81,4 @@
 </div>
 
 
-<script src="date-product-calculator.js"></script> 
+<script src="date-product-calculator.js"></script>
