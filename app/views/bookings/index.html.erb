@@ -18,8 +18,8 @@
        <% @bookings.each do |booking|%>
         <% if current_user.id === booking.user_id %>
           <div class="card-booking">
-            <% if booking.tool.photo.attached? %>
-              <%= cl_image_tag(booking.tool.photo.key, class:"card-booking-img")%>
+            <% if booking.tool.photos.attached? %>
+              <%= cl_image_tag(booking.tool.photos[0].key, class:"card-booking-img")%>
             <%else %>
             <%=  cl_image_tag("ylqaiehw0slcqpsbivst.png", class:"card-booking-img") %>
            <%end %>
@@ -56,8 +56,8 @@
        <% @bookings.each do |booking|%>
         <% if current_user.id === booking.tool.user_id %>
           <div class="card-booking">
-            <% if booking.tool.photo.attached? %>
-              <%= cl_image_tag(booking.tool.photo.key, class:"card-booking-img")%>
+            <% if booking.tool.photos.attached? %>
+              <%= cl_image_tag(booking.tool.photos[0].key, class:"card-booking-img")%>
             <%else %>
             <%=  cl_image_tag("ylqaiehw0slcqpsbivst.png", class:"card-booking-img") %>
            <%end %>

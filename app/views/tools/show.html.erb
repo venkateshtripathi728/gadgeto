@@ -1,3 +1,4 @@
+
 <div class=btn-back>
   <% if current_user === @tool.user %>
     <%= link_to "< Go back to my tools", mytools_path, class:"btn btn-flat-search" %>
@@ -5,17 +6,35 @@
   <%= link_to "< Go back to all tools", tools_path, class:"btn btn-flat-search" %>
   <% end %>
   </div>
+
 <div class="product-container">
 
 
   <div class="product-left-column col-8 ">
-    <% if @tool.photo.attached? %>
-          <%= cl_image_tag(@tool.photo.key)%>
+   <div class="slideshow-container">
+
+ 
+ <% @tool.photos.each do |photo| %>
+  <div class="mySlides fade">
+    <%=  cl_image_tag(photo.key, style: "width:100%") %>
+  </div>
+<% end %>
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<!-- The dots/circles -->
+
+ <!--   <% if @tool.photos.attached? %>
+          <%= cl_image_tag(@tool.photos[1].key)%>
          <%else %>
           <%=  cl_image_tag("ylqaiehw0slcqpsbivst.png") %>
            <%end %>
+  </div> -->
   </div>
-
 
   <div class="product-right-column col-3">
    <% if current_user === @tool.user %>
@@ -88,5 +107,36 @@
 </div>
 
 
-<script src="date-product-calculator.js"></script> 
+
+<script>
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+
 

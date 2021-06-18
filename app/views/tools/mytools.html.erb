@@ -81,8 +81,8 @@
     <% end %>
   <%= link_to tool_path(tool), class: "product-cards-link" do %>
 
-        <% if tool.photo.attached? %>
-          <%= cl_image_tag(tool.photo.key)%>
+        <% if tool.photos.attached? %>
+          <%= cl_image_tag(tool.photos[0].key)%>
          <%else %>
           <%=  cl_image_tag("ylqaiehw0slcqpsbivst.png") %>
           <% end %>
