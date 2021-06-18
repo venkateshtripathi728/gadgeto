@@ -81,8 +81,8 @@
           <p><%= booking.user.user_name %></p>
           </div>
           <div class= "accept-decline-booking">
-            <%= link_to ('<i class="far fa-check-circle"></i>').html_safe, accept_booking_path(booking), method: :patch%>
-            <%= link_to ('<i class="far fa-times-circle"></i>').html_safe, decline_booking_path(booking), method: :patch%>
+            <%= link_to ('<i class="far fa-check-circle"></i>').html_safe, accept_booking_path(booking), method: :patch, data: {confirm:"Are you sure to accept this booking from #{booking.start_date} to #{booking.end_date} ?"} %>
+            <%= link_to ('<i class="far fa-times-circle"></i>').html_safe, decline_booking_path(booking), method: :patch, data: {confirm:"Are you sure to decline this booking from #{booking.start_date} to #{booking.end_date} ?"} %>
           </div>
           </div>
         <% end %>
