@@ -62,8 +62,9 @@
         <i class="far fa-times-circle"></i>
           <% end %>
     <% end %>
-  <%= link_to tool_path(tool), class: "product-cards-link" do %>
-
+   
+    <%= link_to tool_path(tool), class: "product-cards-link" do %>
+        <span class="notify-category"><%=tool.category %></span>
         <% if tool.photo.attached? %>
           <%= cl_image_tag(tool.photo.key)%>
          <%else %>

@@ -34,15 +34,15 @@
     <%= simple_form_for [@tool,@booking] do |f| %>
       <%= f.input :start_date, as: :string, input_html: {id: "range_start"}%>
       <%= f.input :end_date, as: :string, input_html: {id: "range_end"}%>
-      <div class="p-3 m-2 justify-content-between" id="pricetotal" style ="display: none">
+      <div class=" my-2 justify-content-around" id="pricetotal" style ="display: none">
        <div class="text-center">
-        <h3 id="counter" >O</h3>
+        <h3 id="counter" style="font-weight: bold; margin-bottom: 0px">">O</h3>
         <h3 id="dayss">Day</h3>
         </div >
         <div class="verticalLine"></div>
         <div  class="text-center">
-        <h3>Total</h3>
-        <h3 id="totalprice">0 €</h3>
+        <h3 style="margin-bottom: 0px">Total</h3>
+        <h3 id="totalprice" style="font-weight: bold">O>0 €</h3>
         </div>
       </div>
       <%= f.button :submit, "Book now", class: "btn btn-book", disabled: true, id: "book" %>
