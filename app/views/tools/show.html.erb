@@ -11,13 +11,14 @@
 
 
   <div class="product-left-column col-8 ">
-
+   <%= raise %>
 
    <% if @tool.photo.attached? %>
+
           <%= cl_image_tag(@tool.photo.key)%>
          <%else %>
           <%=  cl_image_tag("ylqaiehw0slcqpsbivst.png") %>
-           <%end %>
+    <%end %>
   
   </div>
 
