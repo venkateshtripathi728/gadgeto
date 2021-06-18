@@ -130,7 +130,7 @@
     <%= link_to tool_path(tool), class: "product-cards-link" do %>
     <div class="product-infos">
       <% if tool.photos.attached? %>
-        <%= cl_image_tag(tool.photos[1].key)%>
+        <%= cl_image_tag(tool.photos[0].key)%>
       <%else %>
         <%= cl_image_tag("ylqaiehw0slcqpsbivst.png") %>
       <% end %>
