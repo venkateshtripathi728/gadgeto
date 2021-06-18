@@ -1,6 +1,6 @@
 
 <div class="category-tools">
-   <div class="category-btn active"  data-filter= "Gardening" >
+   <div class="category-btn"  data-filter= "Gardening" >
      Gardening    <%=cl_image_tag("m7zkxnhxztin8ahpspqt.png", class:"icon")%>
    </div>
 
@@ -28,31 +28,25 @@
 <div class="searchbar">
 <form>
   <div class="form-row">
-    <div class="col-5 py-1">
+    <div class="col-5">
       <input type="text" class="form-control" placeholder="What tool are your looking for?">
     </div>
-    <div class="col-2 py-1">
+    <div class="col-2">
       <input type="text" class="form-control" placeholder="Your address">
     </div>
-    <div class="col py-1">
+    <div class="col">
       <input type="date" class="form-control" placeholder="Start Date">
     </div>
-    <div class="col py-1">
+    <div class="col">
       <input type="date" class="form-control" placeholder="End Date">
     </div>
-     <div class="col py-1" style="text-align:center">
+     <div class="col" style="text-align:center">
          <button name="button" type="submit" class="btn btn-flat-search" >       <i class="fas fa-search"></i> Search
         </button>
     </div>
   </div>
 </form>
 </div>
-
-<% if flash[:msg] %>
-  <div class="flash-message text-center">
-    <h3><%= flash[:msg] %></h3>
-  </div>
-<% end %>
 
 <div class="product-tools">
 
@@ -61,6 +55,7 @@
   <div class ="product-cards" data-filter='<%= tool.category.capitalize%>'>
 
     <div class="product-infos">
+
     <% if tool.user === current_user %>
         <span class="notify-badge">Owner</span>
         <%= link_to tool_path(tool), method: :delete, data: { confirm: "Are you sure?" }, class:"notify-badge-delete" do %>
@@ -68,17 +63,15 @@
           <% end %>
     <% end %>
   <%= link_to tool_path(tool), class: "product-cards-link" do %>
+
         <% if tool.photo.attached? %>
           <%= cl_image_tag(tool.photo.key)%>
          <%else %>
           <%=  cl_image_tag("ylqaiehw0slcqpsbivst.png") %>
           <% end %>
         <h2><%=  tool.tool_name.capitalize %></h2>
-        <div class="product-price d-flex justify-content-between m-2">
-        <div>
+        <div class="product-price d-flex justify-content-between m-3">
         <p><%=tool.tool_description.capitalize.first(30) %></p>
-        <p><i class="fas fa-map-marker-alt"></i> <%=tool.address.first(30) %></p>
-        </div>
         <h1><%= tool.price.to_s+"€"%> / day</h1>
        </div>
     </div>

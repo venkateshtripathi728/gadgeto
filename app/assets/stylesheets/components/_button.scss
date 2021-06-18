@@ -105,4 +105,33 @@
 .btn-book:hover {
   background: #37FF8B;
   color: white;
+
+.fa-check-circle {
+  color: #37FF8B;
+  font-size: 25px;
+}
+
+.fa-times-circle {
+  color: red;
+  font-size: 25px;
+}
+
+.btn-add {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.btn-plus {
+  color: #37FF8B  ;
+  background-color: white;
+  font-size: 40px;
+  transition: background 0.3s ease;
+  margin: 0 auto;
+  }
+
+.btn-plus:hover {
+  color: black ;
 }
