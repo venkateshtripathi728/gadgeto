@@ -1,5 +1,9 @@
 <div class=btn-back>
+  <% if current_user === @tool.user %>
+    <%= link_to "< Go back to my tools", mytools_path, class:"btn btn-flat-search" %>
+   <%else  %>
   <%= link_to "< Go back to all tools", tools_path, class:"btn btn-flat-search" %>
+  <% end %>
   </div>
 <div class="product-container">
 
