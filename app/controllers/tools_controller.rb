@@ -1,6 +1,6 @@
 class ToolsController < ApplicationController
   before_action :set_tool, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only:  [:index, :show]
+  skip_before_action :authenticate_user!, only:  [:index, :show,:mytools]
   
 
   def index
@@ -30,19 +30,14 @@ class ToolsController < ApplicationController
   end
 
   def mytools
-    
-    @tools = policy_scope(Tool).where("user_id =?" , current_user.id).order(created_at: :desc)
-    if params.slice(:tool,:address)[:address] !="" && params.slice(:tool,:address)[:tool] == ""
-      @tools = Tool.global_search(params.slice(:tool,:address)[:address])
-    end
-    if params.slice(:tool,:address)[:tool] !="" && params.slice(:tool,:address)[:address] == ""
-      @tools = Tool.global_search(params.slice(:tool,:address)[:tool])
-    end
-    if params.slice(:tool,:address)[:address] !="" && params.slice(:tool,:address)[:tool] !=""
-      @tools = Tool.global_search(params.slice(:tool,:address)[:address]).global_search(params.slice(:tool,:address)[:tool])
-    end
-
-   
+    @query = {tool: params[:tool],address: params[:address]}
+    if @query.values.all? {|x| x == ""  } || @query.values.all? {|x| x == nil  }
+      @tools = policy_scope(Tool).all.where("user_id = ?", current_user.id)
+      authorize @tools
+    else 
+      @tools = policy_scope(Tool).global_search(@query.values.join(" "))
+      authorize @tools
+    end 
   end
   
   
