@@ -13,7 +13,8 @@
   <div class="product-left-column col-8 ">
    <div class="slideshow-container">
 
- 
+<% if @tool.photos.attached? %>
+
  <% @tool.photos.each do |photo| %>
   <div class="mySlides fade">
     <%=  cl_image_tag(photo.key, style: "width:100%") %>
@@ -26,7 +27,10 @@
 </div>
 <br>
 
+   <%else %>
+  <%=  cl_image_tag("ylqaiehw0slcqpsbivst.png") %>
 <!-- The dots/circles -->
+       <%end %>
 
  <!--   <% if @tool.photos.attached? %>
           <%= cl_image_tag(@tool.photos[1].key)%>
