@@ -79,9 +79,11 @@
 <div class="product-tools">
 
   <% @tools.each do |tool| %>
+  
   <div class ="product-cards" data-filter='<%= tool.category.capitalize%>'>
-  <div class ="product-cards">
+
     <div class="product-infos">
+
     <% if tool.user === current_user %>
         <span class="notify-badge">Owner</span>
         <%= link_to tool_path(tool), method: :delete, data: { confirm: "Are you sure?" }, class:"notify-badge-delete" do %>
@@ -89,6 +91,7 @@
           <% end %>
     <% end %>
   <%= link_to tool_path(tool), class: "product-cards-link" do %>
+
         <% if tool.photo.attached? %>
           <%= cl_image_tag(tool.photo.key)%>
          <%else %>
@@ -101,6 +104,7 @@
         <p><i class="fas fa-map-marker-alt"></i> <%=tool.address.first(30) %></p>
         </div>
         <h1><%= tool.price.to_s+"€"%> / day</h1>
+  
        </div>
     </div>
     <div class="avatar-card">
@@ -112,5 +116,7 @@
     </div>
     <% end %>
   </div>
+  
  <% end %>
 </div>
+

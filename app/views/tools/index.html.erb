@@ -70,9 +70,13 @@
           <%=  cl_image_tag("ylqaiehw0slcqpsbivst.png") %>
           <% end %>
         <h2><%=  tool.tool_name.capitalize %></h2>
-        <div class="product-price d-flex justify-content-between m-3">
+        <div class="product-price d-flex justify-content-between m-2">
+        <div>
         <p><%=tool.tool_description.capitalize.first(30) %></p>
+        <p><i class="fas fa-map-marker-alt"></i> <%=tool.address.first(30) %></p>
+        </div>
         <h1><%= tool.price.to_s+"€"%> / day</h1>
+  
        </div>
     </div>
     <div class="avatar-card">
