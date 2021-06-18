@@ -166,8 +166,8 @@
     <p class="text-center">Find the more adapted tool for your needs between more than 100,000 tools !</p>
     <div class="form-group">
       <%= form_tag tools_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
+      <%= text_field_tag :tool,
+        params[:tool],
         id: "id=search_query",
         class: "form-control-home string required",
         placeholder: "Find a tool"

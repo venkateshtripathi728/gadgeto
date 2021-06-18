@@ -17,7 +17,7 @@
 
 .category-btn:hover {
   cursor:pointer;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  box-shadow: 0 0 6px rgba(0,0,0,0.4);
 }
 
 
@@ -26,8 +26,8 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   margin: 40px;
-  margin-top: 40px;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 .product-tools {
@@ -187,8 +187,6 @@ margin-left: 10px;
   color:white;
   font-size: 35px;
 }
-
-
 
 .notify-category{
   position: absolute;
