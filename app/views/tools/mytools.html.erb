@@ -54,10 +54,17 @@
   </div>
 <% end %>
 
+<div class="btn-add">
+
+<%= link_to ('<i class="fas fa-plus-circle"></i>').html_safe, new_tool_path, method: :get, class: "btn-plus"%>
+<p> Add you tools </p>
+
+</div>
+
 <div class="product-tools">
 
   <% @tools.each do |tool| %>
-  
+
   <div class ="product-cards">
   <%= link_to tool_path(tool), class: "product-cards-link" do %>
     <div class="product-infos">
@@ -67,7 +74,6 @@
         <i class="far fa-times-circle"></i>
           <% end %>
     <% end %>
-
         <% if tool.photo.attached? %>
           <%= cl_image_tag(tool.photo.key)%>
          <%else %>
@@ -91,8 +97,5 @@
     </div>
     <% end %>
   </div>
-  
  <% end %>
 </div>
-
-
